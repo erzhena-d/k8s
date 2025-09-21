@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels: 
+    app: team
+    name: erzhena  
+spec:
+  nodeSelector:
+    hello: world
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+  nodeSelector: 
+    hello: world 
+  tolerations:
+  - key: "key1"
+    operator: "Equal"
+    value: "value1"
+    effect: "NoSchedule"
+      
