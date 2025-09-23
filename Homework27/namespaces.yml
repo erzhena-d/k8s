@@ -1,6 +1,6 @@
 #imperative and declarative ways of creating ns in k8s
 #imperative way:
-#kubectl create namespace dev ИЛИ
+#kubectl create namespace dev 
 # for ns in dev qa prod; do kubectl create namespace $ns; done
 #declarative way:
 apiVersion: v1

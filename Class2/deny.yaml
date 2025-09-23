@@ -6,3 +6,4 @@ spec:
   podSelector: {}
   policyTypes:
     - Ingress
+#in default ns deny all ingress traffic to all pods

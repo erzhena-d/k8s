@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql
+spec:
+  containers:
+  - name: mysql
+    image: mysql
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: "kaizen123"
+  nodeSelector:
+    node: worker1
+
+#kubectl get nodes --show-labels
+#k label node gke-cluster-1-default-pool-43fdb00d-zktt node=worker1
+#kubectl get nodes --show-labels | grep worker

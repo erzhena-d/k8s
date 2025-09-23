@@ -13,3 +13,4 @@ spec:
         - podSelector:
             matchLabels:
               team: devops
+#in default ns, open ingress traffic from pods that have label team: devops to pods that have label team: qa

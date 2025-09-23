@@ -16,3 +16,4 @@ spec:
       ports:
         - protocol: TCP
           port: 80
+#in default ns, open ingress traffic from pods that have label team: devops to pods that have label team: qa on port 80 only

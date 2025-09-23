@@ -13,3 +13,5 @@ spec:
       - namespaceSelector:
             matchLabels:
               dev: kube
+#in default ns, open ingress traffic from pods that have labels team: devops 
+#to ns that have label dev: kube
