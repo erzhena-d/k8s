@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wordpress
+spec:
+  containers:
+  - name: wordpress
+    image: erzhenad/mywordpress:1.0.0 
+  imagePullSecrets:
+  - name: dockerhub-secret

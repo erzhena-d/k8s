@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   name: pod2
 spec:
-  priorityClassName: high-priority
+  # priorityClassName: high-priority
   containers:
   - name: nginx
     image: nginx
