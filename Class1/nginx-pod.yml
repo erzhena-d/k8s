@@ -1,0 +1,122 @@
+#k get pod hello -n dev -o yaml > nginx-pod.yml
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    cni.projectcalico.org/containerID: 2d13a8552efd960fbef736fbce0ba6ba3762444caa50523c9fc66633e1d41713
+    cni.projectcalico.org/podIP: 10.60.1.62/32
+    cni.projectcalico.org/podIPs: 10.60.1.62/32
+  creationTimestamp: "2025-09-29T01:19:02Z"
+  generation: 1
+  labels:
+    run: hello
+  name: hello
+  namespace: dev
+  resourceVersion: "1759108743515199024"
+  uid: b9eeef49-2c14-4c8f-9e42-be492d8d14af
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: hello
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-dpgft
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: gke-cluster-1-default-pool-43fdb00d-zktt
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-dpgft
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2025-09-29T01:19:03Z"
+    status: "True"
+    type: PodReadyToStartContainers
+  - lastProbeTime: null
+    lastTransitionTime: "2025-09-29T01:19:02Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2025-09-29T01:19:03Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2025-09-29T01:19:03Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2025-09-29T01:19:02Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: containerd://7f4a2e36642349440ca915bbb9a2494a2626742fe5f9da62ac912485fcb4ff31
+    image: docker.io/library/nginx:latest
+    imageID: docker.io/library/nginx@sha256:d5f28ef21aabddd098f3dbc21fe5b7a7d7a184720bc07da0b6c9b9820e97f25e
+    lastState: {}
+    name: hello
+    ready: true
+    resources: {}
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2025-09-29T01:19:03Z"
+    user:
+      linux:
+        gid: 0
+        supplementalGroups:
+        - 0
+        uid: 0
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-dpgft
+      readOnly: true
+      recursiveReadOnly: Disabled
+  hostIP: 10.128.0.4
+  hostIPs:
+  - ip: 10.128.0.4
+  phase: Running
+  podIP: 10.60.1.62
+  podIPs:
+  - ip: 10.60.1.62
+  qosClass: BestEffort
+  startTime: "2025-09-29T01:19:02Z"

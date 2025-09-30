@@ -1,0 +1,26 @@
+#create ns first, then create pod in that ns, ns under metadata
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: postgres
+  labels: 
+    app: team
+    name: erzhena
+  namespace: dev  
+spec:
+  containers:
+  - name: postgres
+    image: postgres
+    ports:
+    - containerPort: 5432
+    env:
+    - name: POSTGRES_PASSWORD
+      value: "PASSWORD"
+  nodeSelector: 
+    hello: world     
+     

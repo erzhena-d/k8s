@@ -1,0 +1,6 @@
+apiVersion: v2            # обязательно для Helm 3
+name: hello               # имя чарта = имя папки (обычно строчными)
+description: Simple Nginx chart
+type: application
+version: 0.3.0           # версия чарта
+appVersion: "1.28.0"      # версия приложения
